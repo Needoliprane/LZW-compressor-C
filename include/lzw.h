@@ -38,6 +38,10 @@ int master(lzw_t *lzw);
 char const *master_decompress(char const *str);
 char const *master_compress(char const *str);
 
+/* Tool */
+
+int find_in_dictionnary(char const *str, char **dictionary);
+
 /* Print to file */
 
 int print_into_file_d(lzw_t *lzw, char const *res);

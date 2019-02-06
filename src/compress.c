@@ -54,19 +54,17 @@ char *make_str(int dico, int dico_size)
 	return (res);
 }
 
-char const *compress(char const *str, char **dictionary)
+char const *compress(char const *str, char **dictionary, int const dico_size)
 {
 	char *res = malloc(sizeof(char) * 3);
 	char *p = malloc(sizeof(char) * 2);
 	char *c = malloc(sizeof(char) * 2);
-	int index_dico = 0;
-	int dico_size = my_strlen_tab(dictionary);
 	char *pc = NULL;
 
 	if (!res || !p || !c)
 		return (NULL);
 	c[1] = p[1] = res[1] = '\0';
-	for (int i = 0; i < my_strlen(str);) {
+	for (int i = 0, index_dico = 0; i < my_strlen(str);) {
 		(str[i]) ? p[0] = str[i] : 0;
 		(str[i + 1]) ? c[0] = str[i + 1] : 0;
 		pc = my_strcat(p, c);
@@ -86,10 +84,11 @@ char const *master_compress(char const *str)
 {
 	int nb_elem = my_count_para_tab(str);
 	char **dictionary = set_dictionary(str, nb_elem);
+	int dico_size = my_strlen_tab(dictionary);
 	char const *res = NULL;
 
 	if (dictionary == NULL)
 		return (NULL);
-	res = compress(str, dictionary);
+	res = compress(str, dictionary, dico_size);
 	return (res);
 }

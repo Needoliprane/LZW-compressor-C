@@ -23,8 +23,8 @@ int count_para_d(char const *str, char c)
 {
     int count = 0;
 
-    for (int i = 0; str && str[i]; i++) {
-        (str[i] == '[') ? i += 5 : 0;
+    for (int i = 0; c != '[' && c != ']' && str && str[i]; i++) {
+        (str[i] == '[') ? i += 4 : 0;
         if (str[i] == c)
             count++;
     }

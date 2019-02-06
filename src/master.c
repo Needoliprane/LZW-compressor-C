@@ -22,6 +22,8 @@ int print_error_not_d(void)
 
 int error_manage_file(lzw_t *lzw)
 {
+	if (lzw->flag_l == true)
+		return (0);
 	if (lzw->path_file && lzw->flag_d == true &&
 								my_strstr(lzw->path_file, ".my_lzw") == NULL) {
 		return (print_error_not_c());

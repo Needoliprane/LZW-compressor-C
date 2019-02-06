@@ -56,9 +56,9 @@ char *my_strcat(char *buf, char *tmp)
 
     if (new_tmp == NULL)
         return (NULL);
-    for (;buf[j]; j++)
+    for (;buf && buf[j]; j++)
         new_tmp[j] = buf[j];
-    for (int i = 0; tmp[i]; j++, i++)
+    for (int i = 0; tmp && tmp[i]; j++, i++)
         new_tmp[j] = tmp[i];
     new_tmp[j] = '\0';
     return (new_tmp);

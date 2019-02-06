@@ -41,11 +41,12 @@ int set_flag(lzw_t *lzw, char **av)
 int manage_third_av(lzw_t *lzw, char *str)
 {
 	if (lzw->flag_f == true) {
-		lzw->path_file = my_strdup(str);
+		lzw->path_file = str;
 		lzw->file = get_tab(str);
 	}
 	if (lzw->flag_l == true)
 		lzw->str = my_strdup(str);
+
 	if (lzw->flag_l == true && lzw->str == NULL) {
 		printf("Error while getting string\n");
 		return (84);
