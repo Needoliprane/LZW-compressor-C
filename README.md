@@ -11,13 +11,13 @@ Working in progress :
 
 ./lzw -[cd] -[fl] path or line 
 
--c : compress
+- c : compress
 
--d : decompress
+- d : decompress
 
--f : file
+- f : file
 
--l : line
+- l : line
 
 ex : ./lzw -c -f $path or ./lzw -c -l $line
 
