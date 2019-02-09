@@ -11,8 +11,6 @@
 
 void free_lzw(lzw_t *lzw)
 {
-    if (lzw->path_file != NULL)
-        free(lzw->path_file);
     if (lzw->str != NULL)
         free(lzw->str);
     if (lzw->file != NULL)
