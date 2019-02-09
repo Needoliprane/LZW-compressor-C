@@ -16,9 +16,3 @@ int print_usage(void)
     printf("\t -l\t\t: string to compress or decompress\n");
     return (84);
 }
-
-int print_error_c_d(void)
-{
-    printf("Error : While compressing or decompressing\n");
-    return (84);
-}

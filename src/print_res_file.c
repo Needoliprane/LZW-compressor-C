@@ -15,18 +15,6 @@
 char const *ext_c = ".my_lzw";
 char const *ext_d = ".txt";
 
-int print_error_create(void)
-{
-	printf("Error: Fail to create file\n");
-	return (84);
-}
-
-int print_error_writing(void)
-{
-	printf("Error : not able to write on the file\n");
-	return (84);
-}
-
 int print_into_file_c(lzw_t *lzw, char const *res)
 {
 	mode_t mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH;

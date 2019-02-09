@@ -9,18 +9,6 @@
 #include <stdlib.h>
 #include "../include/lzw.h"
 
-int print_error_not_c(void)
-{
-	printf("The file is not compressed\n");
-	return (84);
-}
-
-int print_error_not_d(void)
-{
-	printf("The file is compressed\n");
-	return (84);
-}
-
 int error_manage_file(lzw_t *lzw)
 {
 	if (lzw->flag_l == true)
@@ -38,8 +26,10 @@ int error_manage_file(lzw_t *lzw)
 
 int print_res(lzw_t *lzw, char const *res)
 {
-	if (lzw->flag_l == true)
-		return (printf("%s\n", res));
+	if (lzw->flag_l == true) {
+		printf("%s\n", res);
+		return (0);
+	}
 	if (lzw->flag_f == true && lzw->flag_c == true) {
 		if (print_into_file_c(lzw, res) == 84) {
 			return (84);

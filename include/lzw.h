@@ -57,6 +57,14 @@ char *get_tab(char const *str);
 /* Print Usage */
 
 int print_usage(void);
+
+/* Print Error */
+
+int print_error_writing(void);
+int print_error_create(void);
+int print_error_not_c(void);
+int print_error_not_d(void);
 int print_error_c_d(void);
+
 
 #endif /* !LZW_H_ */

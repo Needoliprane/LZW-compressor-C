@@ -14,6 +14,7 @@ SRC	=	src/main.c						\
 		src/master.c					\
 		src/compress.c					\
 		src/decompress.c				\
+		src/error_msg.c					\
 		src/usage.c						\
 		src/print_res_file.c			\
 		lib/my_strcmp.c					\
