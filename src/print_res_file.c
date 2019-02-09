@@ -37,18 +37,26 @@ int print_into_file_c(lzw_t *lzw, char const *res)
 		return (print_error_create());
 	if (write(fd, res, my_strlen(res)) < 0)
 		return (print_error_writing());
+	close(fd);
 	return (0);
 }
 
 int print_into_file_d(lzw_t *lzw, char const *res)
 {
 	mode_t mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH;
-	char *path = my_strcat(lzw->path_file, (char *)ext_d);
-	int fd = creat(path, mode);
+	char *path = NULL;
+	int fd = 0;
+	int i = 0;
+
+	for (; lzw->path_file[i] != '.' && lzw->path_file[i]; i++);
+	lzw->path_file[i] = '\0';
+	path = my_strcat(lzw->path_file, (char *)ext_d);
+	fd = creat(path, mode);
 
 	if (fd == -1)
 		return (print_error_create());
 	if (write(fd, res, my_strlen(res)) < 0)
 		return (print_error_writing());
+	close(fd);
 	return (0);
 }

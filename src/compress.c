@@ -63,7 +63,7 @@ char const *compress(char const *str, char **dictionary, int const dico_size)
 
 	if (!res || !p || !c)
 		return (NULL);
-	c[1] = p[1] = res[1] = '\0';
+	c[1] = p[1] = res[0] = '\0';
 	for (int i = 0, index_dico = 0; i < my_strlen(str);) {
 		(str[i]) ? p[0] = str[i] : 0;
 		(str[i + 1]) ? c[0] = str[i + 1] : 0;

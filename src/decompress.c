@@ -36,9 +36,27 @@ int get_value(char const *str, int dico_size)
 {
 	int index_c = atoi(str);
 
-	printf("index_c : %d\n", index_c);
 	index_c = dico_size + (index_c - 256);
 	return (index_c);
+}
+
+char **set_first_in_dictionary(char **dictionary, char *res)
+{
+	char *p = malloc(sizeof(char) * 2);
+	char *c = malloc(sizeof(char) * 2);
+	char *pc = NULL;
+
+	p[1] = c[1] = '\0';
+	for (int i = 0; res[i]; i++) {
+		(res[i]) ? p[0] = res[i] : 0;
+		if (res[i + 1])
+			c[0] = res[i + 1];
+		else
+			return (dictionary);
+		pc = my_strcat(p, c);
+		dictionary = my_strcat_tab(dictionary, pc);
+	}
+	return (dictionary);
 }
 
 char *magical_strdup(char const *str, int *i)
@@ -64,28 +82,22 @@ char const *decompress(char const *str, char **dictionary, int const dico_size)
 	if (!res || !p || !c)
 		return (NULL);
 	c[1] = p[1] = '\0';
-	dictionary = my_strcat_tab(dictionary, res);
-	for (int j = 0, index = 0; i < my_strlen(str); i++, j++) {
+	dictionary = set_first_in_dictionary(dictionary, res);
+	for (int j = my_strlen(res) - 1, index = 0; i < my_strlen(str); i++, j++) {
 		if (str[i] == '[') {
 			index = get_value(str + i + 1, dico_size);
+			for (; index >= my_strlen_tab(dictionary); index--);
 			res = my_strcat(res, dictionary[index]);
 			for (i++ ; str[i] && str[i] != ']'; i++);
 		}
 		(res[j]) ? p[0] = res[j] : 0;
 		(res[j + 1]) ? c[0] = res[j + 1] : 0;
 		pc = my_strcat(p, c);
-		printf("pc : %s\n", pc);
 		if (str[i] != '[' && str[i] != ']') {
-			printf("if : %s\n", res);
 			p[0] = str[i];
 			res = my_strcat(res, p);
-			printf("if_n : %s\n", res);
 		}
 		dictionary = my_strcat_tab(dictionary, pc);
-		printf("res : %s\n", res);
-	}
-	for (int i = 0; dictionary[i]; i++, dictionary++) {
-		printf("%d : %s\n", dico_size + 255 + i, dictionary[i]);
 	}
 	return (res);
 }

@@ -6,6 +6,7 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "../include/lzw.h"
 
 int print_error_not_c(void)
@@ -69,5 +70,6 @@ int master(lzw_t *lzw)
 	if (res == NULL)
 		return (print_error_c_d());
 	print_res(lzw, res);
+	free((char *)res);
 	return (0);
 }

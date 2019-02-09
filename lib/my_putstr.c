@@ -53,7 +53,9 @@ int my_show_word_array(char **tab)
 
 void free_tab(char **tab)
 {
-    for (int i = 0; tab[i]; i++)
+    if (!tab)
+        return;
+    for (int i = 0; i <= my_strlen_tab(tab); i++)
         free(tab[i]);
     free(tab);
 }

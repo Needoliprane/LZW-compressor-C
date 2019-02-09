@@ -9,6 +9,17 @@
 #include <stdio.h>
 #include "../include/lzw.h"
 
+void free_lzw(lzw_t *lzw)
+{
+    if (lzw->path_file != NULL)
+        free(lzw->path_file);
+    if (lzw->str != NULL)
+        free(lzw->str);
+    if (lzw->file != NULL)
+        free(lzw->file);
+    free(lzw);
+}
+
 int main(int ac, char **argv)
 {
     lzw_t *lzw = NULL;
@@ -21,5 +32,6 @@ int main(int ac, char **argv)
         return (84);
     if (master(lzw) == 84)
         return (84);
+    free_lzw(lzw);
     return (0);
 }

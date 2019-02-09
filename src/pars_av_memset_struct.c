@@ -18,6 +18,7 @@ void memset_struct(lzw_t *lzw)
 	lzw->flag_l = false;
 	lzw->file = NULL;
 	lzw->str = NULL;
+	lzw->path_file = NULL;
 }
 
 int set_flag(lzw_t *lzw, char **av)
