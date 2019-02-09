@@ -17,7 +17,7 @@ Working in progress :
 
 - f : file
 
-- l : line
+- l : line / param => ./lzw -c -l "babaabaaa"
 
 ex : ./lzw -c -f $path or ./lzw -c -l $line
 
