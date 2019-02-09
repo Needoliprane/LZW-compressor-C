@@ -30,3 +30,7 @@ ex : ./lzw -d -f Makefile.my_lzw will create Makefile.txt
 
 Warning for decompression a file, the programm wait ".my_lzw" at the end of the path name ! 
 
+
+To understand the lzw : https://www.geeksforgeeks.org/lzw-lempel-ziv-welch-compression-technique/
+
+
