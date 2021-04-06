@@ -45,7 +45,7 @@ test:
 		rm -f *.gc*
 		rm -f src/*.gc*
 
-fclean: 	clean coverage_clean
+fclean: 	
 		rm -f $(NAME)
 
 re:		fclean all
